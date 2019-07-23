@@ -1,0 +1,10 @@
+<h1><%= @blogger.name %></h1>
+
+Total likes: <%= @blogger.posts.collect {|post| post.likes}.sum%> <br>
+Featured Post: <%= link_to @blogger.posts.sort_by {|post| post.likes}.last.title, @blogger.posts.sort_by {|post| post.likes}.last %><br>
+<br>
+Top 5 Destinations:<%destinations = @blogger.destinations.sort_by {|destination| destination.posts.length}.last(5).uniq%>
+<ul><% destinations.each do |destination| %>
+    <li><%=destination.name %></li>
+<%end%></ul>
+

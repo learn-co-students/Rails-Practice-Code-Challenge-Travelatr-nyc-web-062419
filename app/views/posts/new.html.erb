@@ -1,0 +1,17 @@
+<h1>Create a Post</h1>
+
+<h3><% if flash.now[:message] %>    
+    <%= flash.now[:message]%>
+<%end%></h3>
+
+<%= form_for @post do |f| %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+    <%= f.label :likes%>
+    <%= f.number_field :likes%>
+    <%= f.collection_select :blogger_id, @bloggers, :id, :name, prompt: "Select a Blogger" %>
+    <%= f.collection_select :destination_id, @destinations, :id, :name, prompt: "Select a Destination" %>
+    <%= f.submit "Submit"%>
+<% end %>
