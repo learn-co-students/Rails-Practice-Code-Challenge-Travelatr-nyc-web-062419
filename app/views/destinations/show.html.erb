@@ -6,4 +6,4 @@ Recent Posts: <%posts = @destination.posts.sort_by{|post| post.created_at}.last(
 <%end%></ul>
 Featured Post: <%= link_to @destination.posts.sort_by {|post| post.likes}.last.title, @destination.posts.sort_by {|post| post.likes}.last %><br>
 <br>
-Average age of bloggers writing about <%=@destination.name%>: <%=(@destination.bloggers.collect {|blogger| blogger.age}.sum.to_f / @destination.bloggers.length).round%>
+Average age of bloggers writing about <%=@destination.name%>: <%=(@destination.bloggers.uniq.collect {|blogger| blogger.age}.sum.to_f / @destination.bloggers.length).round%>
