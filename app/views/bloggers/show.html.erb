@@ -1,0 +1,29 @@
+
+<h1><%= @blogger.name %></h1>
+
+<h3>Total likes: <%= @blogger.posts.inject(0){|sum, post| sum = sum + post.likes}%></h3>
+
+<% top = @blogger.posts.max_by{|post| post.likes} %>
+
+<% if top %>
+
+    <h3>Featured post (with <%=top.likes%> likes):</h3>
+
+    <%= link_to top.title, post_path(top)%>
+
+
+<% end %>
+
+<% dest_ahash = @blogger.posts.group_by{|post| post.destination}.to_a%>
+
+<% ordered_ahash = dest_ahash.sort_by{|pair| pair[1].length}.reverse%>
+
+<% top_5 = ordered_ahash[(0..4)] %>
+
+<h3>Favorite Destinations</h3>
+
+<% top_5.each do |pair| %>
+
+    <li><%= "#{pair[0].name} (has #{pair[1].length} post(s))"%></li>
+
+<% end %>

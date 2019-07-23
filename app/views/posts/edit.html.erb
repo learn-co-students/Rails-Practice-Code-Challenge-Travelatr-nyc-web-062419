@@ -1,0 +1,22 @@
+
+<h1>Update Post</h1>
+
+<%= form_for @post do |f|%>
+
+    <%= f.hidden_field :likes, value: 0 %>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+    <%= f.label :blogger_id %>
+    <%= f.collection_select :blogger_id, @bloggers, :id, :name %>
+    <%= f.label :destination_id %>
+    <%= f.collection_select :destination_id, @destinations, :id, :name %>
+    <br/>
+    <%= f.label :content%>
+    <%= f.text_area :content %>
+    <%= f.submit "Update" %>
+
+<% end %>
+
+<% if flash[:messages]%>
+    <%= flash[:messages]%>
+<% end %>
