@@ -1,0 +1,9 @@
+<h1> <%=@destination.name  %>, <%=@destination.country%></h1>
+
+Recent Posts: <%posts = @destination.posts.sort_by{|post| post.created_at}.last(5).reverse%>
+<ul><%posts.each do |post| %>
+    <li><%= link_to  post.title, post %><br></li>
+<%end%></ul>
+Featured Post: <%= link_to @destination.posts.sort_by {|post| post.likes}.last.title, @destination.posts.sort_by {|post| post.likes}.last %><br>
+<br>
+Average age of bloggers writing about <%=@destination.name%>: <%=(@destination.bloggers.collect {|blogger| blogger.age}.sum.to_f / @destination.bloggers.length).round%>

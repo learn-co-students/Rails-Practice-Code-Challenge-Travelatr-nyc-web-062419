@@ -1,0 +1,24 @@
+<h1><%=@post.title %></h1>
+
+Author: <%= link_to  @post.blogger.name, @post.blogger %><br>
+Destination: <%= link_to  @post.destination.name, @post.destination %>
+<br>
+<br>
+<%content = @post.content%>
+<%if content.include?('", "')
+    content = content.gsub!('", "', ' ')
+end%>
+
+<% if content.include?('"]')
+    content = content.gsub!('["', '')
+end%>
+
+<%if content.include?('"]')
+    content = content.gsub!('"]', '')
+end%>
+<%=content%>
+<br>
+
+<br>
+
+<%= button_to "Likes: #{@post.likes} ", post_path(@post), method: :post%>
