@@ -1,0 +1,24 @@
+<% if @blogger.posts.length == 0 %>
+<h1>Sorry Nothing To Show</h1>
+<% else %>
+<h1><%= @blogger.name %></h1>
+<h5><strong>Age: </strong><%= @blogger.age %></h5>
+<p><strong>Bio: </strong><%= @blogger.bio %></p>
+<br>
+<strong>Top Post: </strong> <%= link_to  @blogger.posts.max_by {|post| post.likes}.title, post_path(@blogger.posts.max_by {|post| post.likes}) %>
+<br><br>
+<% @blogger.posts.each do |post| %>
+<li><%= link_to post.title, post_path(post) %> <br> <%= post.content[1..100] %>"....<br></li>
+<li><strong>Likes: </strong><%= post.likes %> <br><br></li>
+<% end %> <br>
+
+
+<strong>Total Likes: </strong> <%=  @blogger.posts.collect {|post| post.likes}.sum %><br><br>
+
+<strong>Top Destinations: </strong>
+<% @ranking.each do |rank| %>
+<li>
+    <%= link_to rank.name, destination_path(rank) %>
+</li>
+<% end %>
+<% end %>

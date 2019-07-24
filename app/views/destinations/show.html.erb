@@ -1,0 +1,9 @@
+<h1><%= @destination.name %></h1>
+
+<% @destination.posts.last(5).each do |post| %>
+<li><%= post.title %></li>
+<%end%> <br>
+
+<%= link_to @destination.posts.max_by {|post| post.likes}.title, post_path(@destination.posts.max_by {|post| post.likes}) %> <br>
+
+<strong>Average Age Of Bloggers For This Destination: </strong><%= @destination.bloggers.collect {|blogger| blogger.age}.sum.to_f / @destination.bloggers.collect {|blogger| blogger.age}.length%>
