@@ -13,3 +13,69 @@
  *= require_tree .
  *= require_self
  */
+ @import url('https://fonts.googleapis.com/css?family=Overlock&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Quattrocento+Sans&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+ *{
+     margin:0;
+     padding: 0;
+     background: #38b6ac;
+     font-family: 'Overlock', cursive;
+ }
+ .top-links{
+     background: paleturquoise;
+     padding: 10px;
+     margin-bottom: 10px;
+ }
+.top-links h4{
+    display: inline-block;
+    background:rgb(153, 180, 195);
+    padding: 5px;
+    border: solid rgba(15, 42, 15, 0.746) 1px;
+    border-radius: 40%;
+    margin: 5px;
+}
+input,textarea,select{
+    background:rgb(243, 243, 236)
+}
+
+.top-links h4>a{
+  color:white;
+  font-family: 'Lato','Quattrocento Sans', sans-serif;
+  text-decoration: none;
+  background:none;
+}
+.top-links h4>a:hover{
+    color:black;
+    /* text-decoration: underline; */
+    
+}
+
+.main-area{
+    margin-left: 20px;
+    background: #38b6ac;
+    width:100%;
+    height: 100%;
+}
+.main-area h2,h1{
+    font-family: 'Monoton', cursive;
+}
+.main-area h1{
+    font-size: 80px;
+}
+p.post-line{
+    margin: 10px;
+}
+.like-icon{
+   height:auto;
+   width:22px;
+   margin-left: 5px;
+
+}
+.error-message{
+    color: rgb(172, 7, 7);
+
+}
+.post-content{
+    width: 50%;
+}
