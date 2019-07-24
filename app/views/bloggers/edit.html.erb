@@ -1,0 +1,16 @@
+<h1>Bloggers#edit</h1>
+<p>Find me in app/views/bloggers/edit.html.erb</p>
+
+<% if flash[:message] %>
+<h3><%= flash[:message] %></h3>
+<% end %>
+
+<%= form_for @blogger do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :bio %>
+<%= f.text_area :bio %>
+<%= f.label :age %>
+<%= f.number_field :age %>
+<%= f.submit %>
+<% end %>

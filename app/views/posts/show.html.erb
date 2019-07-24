@@ -1,0 +1,14 @@
+<% if flash[:message] %>
+<h3><%= flash[:message] %></h3>
+<% end %>
+<h1><%= @post.title %> </h1>
+<strong>Blogger: 
+<%= link_to  @post.blogger.name, blogger_path(@post.blogger) %></strong>
+<strong>Destination: 
+<%= link_to  @post.destination.name, destination_path(@post.destination) %></strong>
+<P><%= @post.content.delete("[]") %></P>
+
+
+
+Likes: <%= @post.likes %>
+<%= button_to "Upvote", "#{@post.id}/upvote", method: "patch" %>
