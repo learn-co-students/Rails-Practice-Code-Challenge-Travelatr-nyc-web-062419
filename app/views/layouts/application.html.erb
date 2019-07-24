@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Travelatr</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>Travelatr</title>
+  <%= csrf_meta_tags %>
 
-  <body>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <div class="top-links">
+    <h4><%= link_to  "New Blogger", new_blogger_path %></h4>
+    <h4><%= link_to  "Leave A Post", new_post_path %></h4>
+    <h4><%= link_to  "Bloggers", bloggers_path %></h4>
+    <h4><%= link_to  "Destinations", destinations_path %></h4>
+    <h4><%= link_to  "All Posts", posts_path %></h4>
+  </div>
+
+  <div class="main-area">
     <%= yield %>
-  </body>
+  </div>
+</body>
+
 </html>

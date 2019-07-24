@@ -1,0 +1,7 @@
+<h2><%= @blogger.name %></h2>
+<p><%= @blogger.age %></p>
+<h2>Bio</h2>
+<p><%= @blogger.bio %></p>
+<p>Total Likes <%= @blogger.posts.sum(:likes) %></p>
+<p>Feature Article <%= @featured %></p>
+<% # TODO change featured to link %>

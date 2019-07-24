@@ -1,0 +1,13 @@
+<h2><%= @destination.name %></h2>
+<h3><%= @destination.country %></h3>
+</br>
+<h3>Average age <%= @average_age %></h3>
+
+</br>
+<h2>Featured Article</h2>
+<p><%= link_to @top_post.title,post_path(@top_post.id) %></p>
+</br>
+<h2>Recent Articles</h2>
+<% @last_five.each do |p| %>
+<li><%= link_to p.title, post_path(p.id) %></li>
+<% end %>

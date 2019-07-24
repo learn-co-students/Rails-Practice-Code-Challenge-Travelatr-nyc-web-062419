@@ -1,0 +1,12 @@
+<h2>New Blogger</h2>
+<% if flash.now[:message] %>
+
+<h4 class="error-message"><%= flash.now[:message] %></h4>
+<% end %>
+<%= form_for @blogger do |f| %>
+<p><%= f.text_field :name %></p>
+<p><%= f.text_area :bio %></p>
+<p><%= f.number_field :age %></p>
+<p><%= f.submit :submit %></p>
+
+<% end %>

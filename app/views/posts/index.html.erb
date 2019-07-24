@@ -1,0 +1,5 @@
+<h2>Posting Time</h2>
+<% @posts.each do |p| %>
+<p class="post-line"><%= link_to p.title,post_path(p.id) %></p>
+
+<% end %>

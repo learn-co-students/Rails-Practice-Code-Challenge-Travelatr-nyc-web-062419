@@ -1,0 +1,8 @@
+<h2>Visited Locations</h2>
+<% @visited.each do |l| %>
+<p><%= link_to l.name,destination_path(l.id) %></p>
+<% end %>
+<h2>Unvisited Locations</h2>
+<%@unvisited.each do |l| %>
+<p><%= link_to l.name, destination_path(l.id) %></p>
+<% end %>
