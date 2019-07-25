@@ -1,0 +1,15 @@
+<h1><%=@post.title%></h1>
+<% if flash[:message] %>
+    <%= flash[:message] %>
+<% end %>
+<h2>Author: <%= link_to @blogger.name, blogger_path(@blogger) %></h2>
+<h2>Destination: <%= link_to @destination.name, destination_path(@destination) %></h2>
+
+
+<h3>Likes: <%=@post.likes%></h3>
+<h2>Content:</h2>
+<p><%=@post.content.to_s%></p>
+
+<%=button_to "edit post", edit_post_path, method: :get %>
+
+<%=button_to 'Like', "/posts/#{@post.id}/like", params: {likes: @post.likes += 1}, method: :patch%>

@@ -1,0 +1,26 @@
+
+<div class="jumbotron text-center">
+    Bloggers
+</div>
+
+<button type="button" class="btn btn-primary">
+    <%= button_to "Sign up", new_blogger_path, method: :get, form_class: :my_amazing_signUp_form %>
+</button>
+
+<div class="container">
+    <div class="row">
+        <div class=".col">
+            <% @bloggers.each do |b| %>
+                <%= link_to b.name, b %><br/>
+            <% end %>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

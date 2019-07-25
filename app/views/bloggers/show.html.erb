@@ -1,0 +1,19 @@
+<h1><%=@blogger.name %></h1>
+
+<% if flash[:message] %>
+    <% flash[:message] %>
+<% end %>
+
+Total Likes: <h3><%= @likes %></h3>
+<br/>
+Featured Post:<h3>
+    <% if @featured_post != nil %>
+        <%= link_to @featured_post.title, @featured_post %></h3>
+    <% else %>
+        <%= 'No Posts' %>
+    <% end %>
+<br/>
+<h3>Top 5 written destinations</h3>
+<% @destinations.each do |d| %>
+<%= link_to d.name, d %><br/>
+<% end %>
