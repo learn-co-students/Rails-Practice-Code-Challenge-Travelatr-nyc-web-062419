@@ -1,0 +1,21 @@
+<h1>Edit Post</h1>
+
+<% if flash[:message] %>
+    <% flash[:message].each do |m| %>
+        <font color="red"> <%= m %></font>
+    <% end %>
+<% end %>
+
+<%=form_for @post do |f| %>
+<%=f.label :title %>
+<%= f.text_field :title %><br/>
+<%=f.label :likes %>
+<%= f.number_field :likes %><br/>
+<%=f.label :blogger_id, "Blogger" %>
+<%= f.collection_select(:blogger_id, @bloggers, :id, :name) %><br/>
+<%=f.label :destination_id, "Destination" %>
+<%= f.collection_select(:destination_id, @destinations, :id, :name) %><br/>
+<%=f.label :content%><br/>
+<%= f.text_area :content, cols: 40, rows: 10  %><br/>
+<%= f.submit %>
+<% end %>
